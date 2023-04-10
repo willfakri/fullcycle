@@ -5,8 +5,8 @@ FROM nginx:latest
 # RUN apt-get update && \
 #     apt-get install vim -y
 
-# COPY /html /usr/share/nginx/html
+COPY /html /usr/share/nginx/html
 
-ENTRYPOINT [ "echo", "Hello ENTRYPOINT." ]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
-CMD [ "echo", "Hello CMD" ]
+CMD ["nginx", "-g", "daemon off;"]
