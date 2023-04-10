@@ -1,9 +1,12 @@
 FROM nginx:latest
 
-WORKDIR /app
+# WORKDIR /app
 
-RUN apt-get update && \
-    apt-get install vim -y
+# RUN apt-get update && \
+#     apt-get install vim -y
 
-COPY /html /usr/share/nginx/html
+# COPY /html /usr/share/nginx/html
 
+ENTRYPOINT [ "echo", "Hello ENTRYPOINT." ]
+
+CMD [ "echo", "Hello CMD" ]
