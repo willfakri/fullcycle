@@ -1,0 +1,10 @@
+# Dockerfile prod copia os arquivos do projeto para poder rodar a aplicação.
+FROM node
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+EXPOSE 3000
+
+CMD [ "node", "index.js" ]
