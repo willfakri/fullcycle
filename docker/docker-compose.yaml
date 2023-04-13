@@ -1,5 +1,9 @@
 version: '3.8'
 
+networks:
+  laranet:
+    driver: bridge
+
 services:
   laravel:
     image: willfakri/laravel:prod
@@ -14,7 +18,3 @@ services:
       - laranet
     ports:
       - "8080:80"
-
-networks:
-  laranet:
-    driver: bridge
