@@ -6,13 +6,13 @@ const config = {
     user: 'root',
     password: 'root',
     database: 'nodedb'
-}
+};
 const mysql = require('mysql')
 const connection = mysql.createConnection(config)
 
 const sql = `INSERT INTO people(name) values('Willian')`
 connection.query(sql)
-connection.end
+connection.end()
 
 app.get('/', (req,res) => {
     res.send('<h1>Hello Node!</h1>')
