@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  golang:
+    build:
+      context: ./laravel
+      dockerfile: Dockerfile.prod
+    image: golang:1.20.3-bullseye
+    container_name: go
+    # networks:
+    #   - laranet
+
+  nginx:
+    build: 
+      context: ./nginx
+      dockerfile: Dockerfile.prod
+    image: willfakri/nginx:prod
+    container_name: nginx
+    networks:
+      - laranet
+    ports:
+      - "8080:80"
+
+# networks:
+#   laranet:
+#     driver: bridge
