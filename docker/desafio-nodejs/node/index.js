@@ -16,12 +16,6 @@ const config = {
 };
 const mysql = require('mysql')
 
-//const name = randomName();
-//const sql = `INSERT INTO people(name) values('${name}')`
-
-//connection.query(sql)
-
-
 app.post('/insertName', function(req, res) {
     var name = randomName();
     const connection = mysql.createConnection(config);
@@ -52,12 +46,6 @@ app.post('/insertName', function(req, res) {
       res.send(nameList);      
     });
   });
-
-
-
-// app.get('/', (req,res) => {
-//     res.send('<h1>Full Cycle Rocks!</h1>')
-// })
 
 app.listen(port, ()=> {
     console.log('Rodando na porta ' + port + '.')

@@ -6,26 +6,22 @@
   </head>
   <body>
     <h1>Full Cycle Rocks!</h1>
-    <form>
-      <label for="name">Nome:</label>
-      <input type="text" id="name" name="name"><br><br>
-      <button type="button" onclick="insertName()">Inserir</button>
+    <form>      
+      <button type="button" onclick="insertName()">Inserir nome</button>
     </form>
     <h2>Nomes inseridos:</h2>
     <ul id="nameList"></ul>
     <script>
       function insertName() {
-        var name = document.getElementById("name").value;
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
             document.getElementById("nameList").innerHTML = this.responseText;
-            document.getElementById("name").value = "";
           }
         };
         xhttp.open("POST", "/insertName", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("name=" + name);
+        xhttp.send();
       }
       function getNames() {
         var xhttp = new XMLHttpRequest();
@@ -37,7 +33,7 @@
         xhttp.open("GET", "/getNames", true);
         xhttp.send();
       }
-      setInterval(getNames, 5000);
+      getNames();
     </script>
   </body>
 </html>
