@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get install -y wget
 
-COPY package*.json /usr/src/app
+COPY package*.json ./
 RUN npm install
 
 ENV DOCKERIZE_VERSION v0.6.1
